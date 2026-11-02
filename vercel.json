@@ -3,7 +3,6 @@
   "framework": null,
   "buildCommand": "node scripts/build-public.cjs && node scripts/security-check.cjs",
   "outputDirectory": "dist",
-  "public": false,
   "headers": [
     {
       "source": "/(.*)",

@@ -4,7 +4,7 @@ Se reforzó el código local del sitio estático. Esto no es una certificación 
 
 ## Qué se implementó
 
-- `vercel.json` publica únicamente `dist/` y mantiene privados los logs y la vista de código del despliegue. Esto no cambia la visibilidad del repositorio de GitHub ni la audiencia del sitio.
+- `vercel.json` publica únicamente `dist/` y configura las cabeceras de seguridad. La visibilidad de logs y del despliegue se revisa en las opciones de Vercel; no se establece mediante la propiedad `public`, que el esquema de despliegue rechazó. Esto no cambia la visibilidad del repositorio de GitHub ni la audiencia del sitio.
 - `scripts/build-public.cjs` genera las siete vistas de servicios y copia solo las páginas, CSS, JavaScript y recursos necesarios. No publica `.review`, `.git`, scripts de construcción, respaldos ZIP, archivos `.env`, documentación ni prompts. Rechaza enlaces simbólicos y limita el reemplazo recursivo al directorio generado `dist/`.
 - El build ejecuta `scripts/security-check.cjs`: si detecta un incumplimiento, falla antes de publicar. Comprueba el paquete público, referencias, scripts, contenido incrustado y algunos patrones de credenciales. No es un escáner exhaustivo de secretos ni de vulnerabilidades.
 - CSP permite JavaScript solo del propio sitio, sin `unsafe-inline` ni `unsafe-eval`. Bloquea controladores de eventos y estilos en atributos, objetos, marcos y bases URL insertadas. Se preservan los orígenes necesarios para Google Fonts y FormSubmit. Los estilos de columnas pasaron a clases CSS sin modificar su apariencia.
