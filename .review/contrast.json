@@ -1,0 +1,12 @@
+[
+  {
+    "theme": "light",
+    "textSamples": 78,
+    "minimumRatio": 4.83
+  },
+  {
+    "theme": "dark",
+    "textSamples": 77,
+    "minimumRatio": 5.25
+  }
+]

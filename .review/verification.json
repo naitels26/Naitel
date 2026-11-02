@@ -1,0 +1,18 @@
+{
+  "checks": [
+    "Hero text/images, six map locations and map attribution load",
+    "Theme/language controls, labels and persisted preferences",
+    "No page overflow or header collisions across nine viewport widths (320–1440)",
+    "Mobile menu: open, Escape, restored focus, inert links and anchor navigation",
+    "Project gallery can scroll using the keyboard on mobile",
+    "Form: required fields, email validation, visible focus and original demo alert",
+    "Computed transitions use only opacity/transform and stay within 150–400 ms",
+    "Reduced motion disables animation while preserving menu/content",
+    "Changing reduced-motion preference live reveals all pending content",
+    "Without JavaScript, content and mobile navigation remain visible",
+    "Storage/IntersectionObserver/Leaflet failures do not break the remaining UI",
+    "No JavaScript runtime errors"
+  ],
+  "errors": [],
+  "externalFailures": []
+}

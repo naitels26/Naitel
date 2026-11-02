@@ -1,0 +1,13 @@
+[
+  "Redundant text and decorative project arrow removed",
+  "Centered heading and header fit ES/EN at nine widths, 320–1440 px",
+  "Project cards and buttons share identical vertical alignment",
+  "All six detail modals open, trap focus, close with Escape and restore focus",
+  "Whole cards are clickable; backdrop and close button work",
+  "Detail copy translates; CTA reaches and focuses contact form",
+  "Mobile detail panel scrolls; close control stays visible; small-screen CTA works",
+  "Mobile navigation and local vector map remain functional",
+  "Reduced motion removes all running animations",
+  "Typing runs once per language change, keeps layout stable and stops for reduced motion",
+  "No JavaScript errors"
+]

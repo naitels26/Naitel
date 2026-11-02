@@ -1,0 +1,14 @@
+[
+  {
+    "theme": "light",
+    "main": 102,
+    "modal": 13,
+    "minimumRatio": 4.65
+  },
+  {
+    "theme": "dark",
+    "main": 102,
+    "modal": 13,
+    "minimumRatio": 5.25
+  }
+]

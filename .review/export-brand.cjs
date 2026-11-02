@@ -1,0 +1,12 @@
+const fs = require('node:fs');
+const path = require('node:path');
+const root = path.resolve(__dirname, '..');
+const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+const match = html.match(/<svg class="brand-symbol"[\s\S]*?<\/svg>/);
+if (!match) throw new Error('Brand SVG not found');
+const paths = match[0].replace(/^<svg[^>]+>/, '').replace('</svg>', '').trim();
+const wordmark = color => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 362 82" role="img" aria-label="Naitels"><g transform="translate(-13 -42) scale(.85)" fill="${color}">${paths.replaceAll('currentColor', color)}</g><text x="166" y="64" fill="${color}" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="64" font-weight="600" letter-spacing="-2.8">Naitels</text></svg>`;
+fs.writeFileSync(path.join(root, 'assets/images/naitels-logo.svg'), wordmark('#073657'));
+fs.writeFileSync(path.join(root, 'assets/images/naitels-logo-dark.svg'), wordmark('#f4f8fd'));
+fs.writeFileSync(path.join(root, 'assets/images/naitels-symbol.svg'), `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" rx="32" fill="#fff"/>${paths.replaceAll('currentColor', '#073657')}</svg>`);
+console.log('Exported SVG wordmarks and favicon');

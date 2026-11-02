@@ -1,0 +1,15 @@
+{
+  "checks": [
+    "Responsive in ES/EN at nine widths (320–1440), no overflow or header overlap",
+    "Local vector map: six selectable cities, SVG geometry, overview and zoom; zero tile requests",
+    "New headings, city selection status and map controls translate",
+    "Mobile menu and keyboard focus remain functional",
+    "Existing form validation and demo submission remain intact",
+    "Reduced motion and 150–400 ms transform/opacity constraints preserved",
+    "Map works from file:// with all HTTP/HTTPS requests blocked",
+    "Without JavaScript, static local map, city links and mobile navigation remain available",
+    "No JavaScript runtime errors"
+  ],
+  "errors": [],
+  "tileRequests": []
+}

@@ -1,0 +1,130 @@
+[
+  {
+    "lang": "es",
+    "width": 320,
+    "size": "34px",
+    "sameLine": false,
+    "overflow": false,
+    "label": "El futuro de tu infraestructura."
+  },
+  {
+    "lang": "es",
+    "width": 390,
+    "size": "34px",
+    "sameLine": false,
+    "overflow": false,
+    "label": "El futuro de tu infraestructura."
+  },
+  {
+    "lang": "es",
+    "width": 600,
+    "size": "46px",
+    "sameLine": false,
+    "overflow": false,
+    "label": "El futuro de tu infraestructura."
+  },
+  {
+    "lang": "es",
+    "width": 601,
+    "size": "32.1535px",
+    "sameLine": true,
+    "overflow": false,
+    "label": "El futuro de tu infraestructura."
+  },
+  {
+    "lang": "es",
+    "width": 768,
+    "size": "41.088px",
+    "sameLine": true,
+    "overflow": false,
+    "label": "El futuro de tu infraestructura."
+  },
+  {
+    "lang": "es",
+    "width": 1024,
+    "size": "54.784px",
+    "sameLine": true,
+    "overflow": false,
+    "label": "El futuro de tu infraestructura."
+  },
+  {
+    "lang": "es",
+    "width": 1440,
+    "size": "72px",
+    "sameLine": true,
+    "overflow": false,
+    "label": "El futuro de tu infraestructura."
+  },
+  {
+    "lang": "es",
+    "width": 1920,
+    "size": "72px",
+    "sameLine": true,
+    "overflow": false,
+    "label": "El futuro de tu infraestructura."
+  },
+  {
+    "lang": "en",
+    "width": 320,
+    "size": "30px",
+    "sameLine": false,
+    "overflow": false,
+    "label": "The future of your infrastructure."
+  },
+  {
+    "lang": "en",
+    "width": 390,
+    "size": "30.42px",
+    "sameLine": false,
+    "overflow": false,
+    "label": "The future of your infrastructure."
+  },
+  {
+    "lang": "en",
+    "width": 600,
+    "size": "42px",
+    "sameLine": false,
+    "overflow": false,
+    "label": "The future of your infrastructure."
+  },
+  {
+    "lang": "en",
+    "width": 601,
+    "size": "30px",
+    "sameLine": true,
+    "overflow": false,
+    "label": "The future of your infrastructure."
+  },
+  {
+    "lang": "en",
+    "width": 768,
+    "size": "37.632px",
+    "sameLine": true,
+    "overflow": false,
+    "label": "The future of your infrastructure."
+  },
+  {
+    "lang": "en",
+    "width": 1024,
+    "size": "50.176px",
+    "sameLine": true,
+    "overflow": false,
+    "label": "The future of your infrastructure."
+  },
+  {
+    "lang": "en",
+    "width": 1440,
+    "size": "68px",
+    "sameLine": true,
+    "overflow": false,
+    "label": "The future of your infrastructure."
+  },
+  {
+    "lang": "en",
+    "width": 1920,
+    "size": "68px",
+    "sameLine": true,
+    "overflow": false,
+    "label": "The future of your infrastructure."
+  }
+]
