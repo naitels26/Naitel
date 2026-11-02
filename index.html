@@ -19,7 +19,10 @@
     <script src="assets/vendor/leaflet/leaflet.js" defer></script>
     <script src="assets/data/coverage.js" defer></script>
     <script src="js/main.js" defer></script>
+    <script src="js/appointments.js" defer></script>
+    <script src="js/calendar.js" defer></script>
     <script src="js/contact.js" defer></script>
+    <script src="js/service-data.js" defer></script>
     <script src="js/details.js" defer></script>
     <script src="js/chatbot.js" defer></script>
 </head>
@@ -75,13 +78,49 @@
                     <span class="subtitle" data-i18n="services-eyebrow">Portafolio de servicios</span>
                     <h2 id="services-title" data-i18n="services-title">Soluciones para toda tu operación.</h2>
                 </div>
+                <div class="primary-service-carousel" data-service-carousel data-interval="4200">
+                    <button class="service-carousel-control" type="button" data-service-prev data-i18n-aria="service-prev" aria-label="Ver servicios anteriores" disabled><span aria-hidden="true">←</span></button>
+                    <div class="service-card-viewport" tabindex="0" role="region" aria-labelledby="services-title" aria-roledescription="carrusel" data-i18n-roledescription="carousel-role">
                 <div class="bento-grid">
-                    <article class="service-card bento-large reveal">
-                        <div class="service-heading"><span class="card-index" aria-hidden="true">01 /</span><h3 id="service-dc-title">Data Centers</h3><p data-i18n="dc-summary">Centros de datos a tu medida, con energía, climatización y conectividad para mantener tu operación disponible.</p></div>
-                        <button class="card-open" type="button" data-detail="data-centers" aria-labelledby="dc-open service-dc-title" hidden><span id="dc-open" data-i18n="view-details">Ver detalles</span><span class="detail-plus" aria-hidden="true">+</span></button>
+                    <article class="service-card reveal"><div class="service-card-visual"><img src="assets/images/case_industrial.png" alt="" width="1024" height="1024" loading="lazy"></div><span class="card-index" aria-hidden="true">01 /</span><h3 id="service-sys-title" data-i18n="sys-title">Sistemas Especiales</h3><p data-i18n="sys-summary">Video inteligente y control de acceso para tu operación.</p><a class="card-open" href="sistemas-especiales.html" aria-labelledby="sys-open service-sys-title"><span id="sys-open" data-i18n="view-service">Explorar servicio</span><span class="detail-plus" aria-hidden="true">↗</span></a></article>
+                    <article class="service-card reveal">
+                        <div class="service-card-visual"><img src="assets/images/services/software-v1.jpg" alt="" width="960" height="640" loading="lazy" decoding="async"></div>
+                        <span class="card-index" aria-hidden="true">02 /</span>
+                        <h3 id="service-software-title" data-i18n="service-software">Desarrollo de software</h3>
+                        <p data-i18n="software-summary">Aplicaciones a medida, ERP, inventarios y monitoreo.</p>
+                        <a class="card-open" href="desarrollo-software.html" aria-labelledby="software-open service-software-title"><span id="software-open" data-i18n="view-service">Explorar servicio</span><span class="detail-plus" aria-hidden="true">↗</span></a>
                     </article>
-                    <article class="service-card reveal"><span class="card-index" aria-hidden="true">02 /</span><h3 id="service-cyb-title" data-i18n="cyb-title">Ciberseguridad</h3><p data-i18n="cyb-summary">Protección y control para tus redes y accesos.</p><button class="card-open" type="button" data-detail="cybersecurity" aria-labelledby="cyb-open service-cyb-title" hidden><span id="cyb-open" data-i18n="view-details">Ver detalles</span><span class="detail-plus" aria-hidden="true">+</span></button></article>
-                    <article class="service-card reveal"><span class="card-index" aria-hidden="true">03 /</span><h3 id="service-sys-title" data-i18n="sys-title">Sistemas Especiales</h3><p data-i18n="sys-summary">Video inteligente y control de acceso para tu operación.</p><button class="card-open" type="button" data-detail="special-systems" aria-labelledby="sys-open service-sys-title" hidden><span id="sys-open" data-i18n="view-details">Ver detalles</span><span class="detail-plus" aria-hidden="true">+</span></button></article>
+                    <article class="service-card bento-large reveal">
+                        <div class="service-card-visual"><img src="assets/images/datacenter.png" alt="" width="1024" height="1024" loading="lazy"></div>
+                        <div class="service-heading"><span class="card-index" aria-hidden="true">03 /</span><h3 id="service-dc-title">Data Centers</h3><p data-i18n="dc-summary">Centros de datos a tu medida, con energía, climatización y conectividad para mantener tu operación disponible.</p></div>
+                        <a class="card-open" href="datacenters.html" aria-labelledby="dc-open service-dc-title"><span id="dc-open" data-i18n="view-service">Explorar servicio</span><span class="detail-plus" aria-hidden="true">↗</span></a>
+                    </article>
+                    <article class="service-card reveal"><div class="service-card-visual"><img src="assets/images/case_network.png" alt="" width="1024" height="1024" loading="lazy"></div><span class="card-index" aria-hidden="true">04 /</span><h3 id="service-cyb-title" data-i18n="cyb-title">Networking y Ciberseguridad</h3><p data-i18n="cyb-summary">Conectividad empresarial, redes inalámbricas y protección digital.</p><a class="card-open" href="ciberseguridad.html" aria-labelledby="cyb-open service-cyb-title"><span id="cyb-open" data-i18n="view-service">Explorar servicio</span><span class="detail-plus" aria-hidden="true">↗</span></a></article>
+                    <article class="service-card reveal">
+                        <div class="service-card-visual"><img src="assets/images/services/servers-v1.jpg" alt="" width="960" height="640" loading="lazy" decoding="async"></div>
+                        <span class="card-index" aria-hidden="true">05 /</span>
+                        <h3 id="service-hardware-title" data-i18n="service-hardware">Equipo Activo</h3>
+                        <p data-i18n="hardware-summary">Servidores, almacenamiento, hiperconvergencia, cómputo y movilidad.</p>
+                        <a class="card-open" href="servidores.html" aria-labelledby="hardware-open service-hardware-title"><span id="hardware-open" data-i18n="view-service">Explorar servicio</span><span class="detail-plus" aria-hidden="true">↗</span></a>
+                    </article>
+                    <article class="service-card reveal">
+                        <div class="service-card-visual"><img src="assets/images/services/licensing-v1.jpg" alt="" width="960" height="640" loading="lazy" decoding="async"></div>
+                        <span class="card-index" aria-hidden="true">06 /</span>
+                        <h3 id="service-licensing-title" data-i18n="service-licensing">Licenciamiento de software</h3>
+                        <p data-i18n="licensing-summary">Microsoft, AutoCAD, Minitab y las herramientas que necesita tu equipo.</p>
+                        <a class="card-open" href="licenciamiento.html" aria-labelledby="licensing-open service-licensing-title"><span id="licensing-open" data-i18n="view-service">Explorar servicio</span><span class="detail-plus" aria-hidden="true">↗</span></a>
+                    </article>
+                    <article class="service-card reveal">
+                        <div class="service-card-visual"><img src="assets/images/case_datacenter.png" alt="" width="1024" height="1024" loading="lazy" decoding="async"></div>
+                        <span class="card-index" aria-hidden="true">07 /</span>
+                        <h3 id="service-projects-title" data-i18n="service-projects">Proyectos de Tecnología</h3>
+                        <p data-i18n="projects-summary">Ingeniería, gestión e implementación llave en mano.</p>
+                        <a class="card-open" href="proyectos-tecnologia.html" aria-labelledby="projects-open service-projects-title"><span id="projects-open" data-i18n="view-service">Explorar servicio</span><span class="detail-plus" aria-hidden="true">↗</span></a>
+                    </article>
+                </div>
+                    </div>
+                    <button class="service-carousel-control" type="button" data-service-next data-i18n-aria="service-next" aria-label="Ver más servicios"><span aria-hidden="true">→</span></button>
+                    <div class="primary-carousel-footer"><span class="service-carousel-progress" aria-hidden="true"><span data-service-progress></span></span><button class="carousel-motion-toggle" type="button" data-service-pause aria-pressed="false">Pausar animación</button></div>
                 </div>
                 <div class="service-catalog reveal" aria-labelledby="catalog-title">
                     <div class="service-catalog-heading"><span class="subtitle" data-i18n="catalog-sub">También integramos</span><h3 id="catalog-title" data-i18n="catalog-title">Servicios para cada capa de tu operación.</h3></div>
@@ -93,9 +132,7 @@
                                 <button class="service-chip" type="button" data-detail="telephony" hidden><span class="service-chip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7.5 4.5 5.8 6.2c-.8.8-.8 2.1-.2 3.1a16.8 16.8 0 0 0 9.1 9.1c1 .6 2.3.6 3.1-.2l1.7-1.7-3.1-3.1-1.6 1.1a12 12 0 0 1-4.5-4.5l1.1-1.6-3.1-3.9Z"/></svg></span><span class="service-chip-label" data-i18n="service-telephony">Telefonía</span><span aria-hidden="true">+</span></button>
                                 <button class="service-chip" type="button" data-detail="audio-video" hidden><span class="service-chip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3.5" y="5" width="12" height="14" rx="2"/><path d="m15.5 10 5-3v10l-5-3M7.5 9.5h4M7.5 12h5"/></svg></span><span class="service-chip-label" data-i18n="service-audio">Audio y video</span><span aria-hidden="true">+</span></button>
                                 <button class="service-chip" type="button" data-detail="fire-suppression" hidden><span class="service-chip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3.5c1.7 3.1 4.8 4.9 4.8 8.9A4.8 4.8 0 1 1 7.2 12c0-2.2 1.3-4.1 3.2-5.8.2 1.5.7 2.5 1.6 3.2.7-1.5.6-3.5 0-5.9Z"/><path d="M9.5 16.3a2.7 2.7 0 0 0 5 0"/></svg></span><span class="service-chip-label" data-i18n="service-fire">Supresión de incendios</span><span aria-hidden="true">+</span></button>
-                                <button class="service-chip" type="button" data-detail="software" hidden><span class="service-chip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m8.5 7-4 5 4 5M15.5 7l4 5-4 5M13.5 4l-3 16"/></svg></span><span class="service-chip-label" data-i18n="service-software">Desarrollo de software</span><span aria-hidden="true">+</span></button>
-                                <button class="service-chip" type="button" data-detail="hardware" hidden><span class="service-chip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4m3-4v4m3-4v4m-6 12v4m3-4v4m3-4v4M2 9h4m-4 3h4m-4 3h4m12-6h4m-4 3h4m-4 3h4M10 10h4v4h-4z"/></svg></span><span class="service-chip-label" data-i18n="service-hardware">Consultoría de hardware</span><span aria-hidden="true">+</span></button>
-                                <button class="service-chip" type="button" data-detail="structured-cabling" hidden><span class="service-chip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 8h5v4H4zM15 12h5v4h-5zM9 10h6v4H9zM6.5 12v3a2 2 0 0 0 2 2H15"/></svg></span><span class="service-chip-label" data-i18n="service-cabling">Cableado estructurado y fibra óptica</span><span aria-hidden="true">+</span></button>
+                                <button class="service-chip" type="button" data-detail="structured-cabling" hidden><span class="service-chip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 8h5v4H4zM15 12h5v4h-5zM9 10h6v4H9zM6.5 12v3a2 2 0 0 0 2 2H15"/></svg></span><span class="service-chip-label" data-i18n="service-cabling">Infraestructura de redes</span><span aria-hidden="true">+</span></button>
                                 <button class="service-chip" type="button" data-detail="networks" hidden><span class="service-chip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><path d="m10.8 6.7-4.5 9.5m6.9-9.5 4.5 9.5M7 18h10"/></svg></span><span class="service-chip-label" data-i18n="service-networks">Redes</span><span aria-hidden="true">+</span></button>
                                 <button class="service-chip" type="button" data-detail="security-systems" hidden><span class="service-chip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3.5 19 6v5.5c0 4.4-2.8 7.5-7 9-4.2-1.5-7-4.6-7-9V6l7-2.5Z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="service-chip-label" data-i18n="service-security">Sistemas de seguridad</span><span aria-hidden="true">+</span></button>
                                 <button class="service-chip" type="button" data-detail="smart-workspaces" hidden><span class="service-chip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18h6M10 21h4M8.5 14.5A6 6 0 1 1 15.6 15c-.8.5-1.3 1.4-1.3 2.3H9.7c0-1.1-.4-2-1.2-2.8Z"/><path d="M12 5v2m-5.2.2 1.4 1.4m8.4 0 1.4-1.4"/></svg></span><span class="service-chip-label" data-i18n="service-smart">Espacios de trabajo inteligentes</span><span aria-hidden="true">+</span></button>
@@ -186,8 +223,38 @@
                             <div class="form-field"><label for="full-name"><span data-i18n="label-name">Nombre completo</span> <span aria-hidden="true">*</span></label><div class="field-control"><input id="full-name" name="name" type="text" class="form-control" placeholder="Nombre completo" autocomplete="name" required data-i18n-ph="form-name"></div></div>
                             <div class="form-field"><label for="email"><span data-i18n="label-email">Correo electrónico</span> <span aria-hidden="true">*</span></label><div class="field-control"><input id="email" name="email" type="email" class="form-control" placeholder="Correo electrónico" autocomplete="email" required data-i18n-ph="form-email"></div></div>
                         </div>
-                        <div class="form-field"><label for="company" data-i18n="label-company">Empresa (opcional)</label><div class="field-control"><input id="company" name="company" type="text" class="form-control" placeholder="Empresa" autocomplete="organization" data-i18n-ph="form-company"></div></div>
-                        <div class="form-field"><label for="message"><span data-i18n="label-help">Mensaje</span> <span aria-hidden="true">*</span></label><div class="field-control"><textarea id="message" name="message" class="form-control" rows="5" placeholder="¿En qué te podemos ayudar?" required data-i18n-ph="form-help"></textarea></div></div>
+                        <div class="form-row">
+                            <div class="form-field"><label for="company" data-i18n="label-company">Empresa (opcional)</label><div class="field-control"><input id="company" name="company" type="text" class="form-control" placeholder="Empresa" autocomplete="organization" data-i18n-ph="form-company"></div></div>
+                            <div class="form-field"><label for="service-interest"><span data-i18n="label-service">Servicio de interés</span> <span aria-hidden="true">*</span></label><div class="field-control"><select id="service-interest" name="Servicio_de_interes" class="form-control" required><option value="" selected disabled data-i18n="service-select-placeholder">Selecciona un servicio</option><option value="Sistemas Especiales" data-i18n="sys-title">Sistemas Especiales</option><option value="Desarrollo de Software" data-i18n="service-software">Desarrollo de software</option><option value="Data Centers" data-i18n="dc-title">Data Centers</option><option value="Networking y Ciberseguridad" data-i18n="cyb-title">Networking y Ciberseguridad</option><option value="Equipo Activo" data-i18n="service-hardware">Equipo Activo</option><option value="Licenciamiento" data-i18n="service-licensing">Licenciamiento de software</option><option value="Proyectos de Tecnología" data-i18n="service-projects">Proyectos de Tecnología</option><option value="Necesito orientación" data-i18n="service-guidance">Necesito orientación</option></select></div></div>
+                        </div>
+                        <details class="appointment-request" data-appointment-panel>
+                            <summary><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18m-12 5h.01M12 16h.01M16 16h.01"/></svg><span data-i18n="visit-title">Proponer una visita o reunión</span><span class="appointment-plus" aria-hidden="true">+</span></summary>
+                            <div class="appointment-fields">
+                                <p class="form-hint" id="visit-note" data-i18n="visit-note">Propón fecha y hora. Te contactaremos para confirmar disponibilidad.</p>
+                                <div class="form-field"><label for="visit-mode" data-i18n="visit-mode-label">Tipo de reunión</label><div class="field-control"><select id="visit-mode" name="Modalidad" class="form-control" aria-describedby="visit-note"><option value="Visita a instalaciones" data-i18n="visit-onsite">Visita a tus instalaciones</option><option value="Reunión en sucursal" data-i18n="visit-branch">Reunión en sucursal Naitel</option><option value="Videollamada" data-i18n="visit-video">Videollamada</option></select></div></div>
+                                <div class="appointment-date-picker" data-calendar-root>
+                                <div class="form-row">
+                                    <div class="form-field"><label for="visit-date"><span data-i18n="visit-date-label">Fecha propuesta</span> <span aria-hidden="true">*</span></label>
+                                        <div class="field-control calendar-date-control">
+                                            <input id="visit-date" name="Fecha_propuesta" type="date" class="form-control" aria-describedby="visit-note">
+                                            <button class="calendar-trigger" type="button" data-calendar-trigger aria-label="Abrir calendario" data-i18n-aria="calendar-open" aria-haspopup="dialog" aria-controls="visit-calendar" aria-expanded="false" hidden><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 11h18m-12 5h.01M12 16h.01M16 16h.01"/></svg></button>
+                                        </div>
+                                    </div>
+                                    <div class="form-field"><label for="visit-time"><span data-i18n="visit-time-label">Hora propuesta</span> <span aria-hidden="true">*</span></label><div class="field-control"><input id="visit-time" name="Hora_propuesta" type="time" class="form-control" aria-describedby="visit-timezone"></div></div>
+                                </div>
+                                            <div class="appointment-calendar" id="visit-calendar" role="dialog" aria-labelledby="visit-calendar-title" hidden>
+                                                <div class="calendar-heading"><button type="button" class="calendar-nav" data-calendar-prev aria-label="Mes anterior" data-i18n-aria="calendar-prev"><span aria-hidden="true">‹</span></button><h3 id="visit-calendar-title" aria-live="polite"></h3><button type="button" class="calendar-nav" data-calendar-next aria-label="Mes siguiente" data-i18n-aria="calendar-next"><span aria-hidden="true">›</span></button></div>
+                                                <div role="grid" aria-labelledby="visit-calendar-title"><div class="calendar-weekdays" role="row" data-calendar-weekdays></div><div class="calendar-days" role="rowgroup" data-calendar-days></div></div>
+                                                <div class="calendar-footer"><button type="button" data-calendar-today data-i18n="calendar-today">Hoy</button><button type="button" data-calendar-close data-i18n="calendar-close">Cerrar</button></div>
+                                            </div>
+                                </div>
+                                <p class="form-hint appointment-timezone" id="visit-timezone" data-appointment-timezone></p>
+                                <div class="form-field" data-appointment-location><label for="visit-location"><span data-i18n="visit-location-label">Ciudad y lugar de la visita</span> <span aria-hidden="true">*</span></label><div class="field-control"><input id="visit-location" name="Ciudad_o_lugar" type="text" class="form-control" placeholder="Ej. Ciudad Juárez, instalaciones de mi empresa" data-i18n-ph="visit-location" autocomplete="off" maxlength="200"></div></div>
+                                <input id="visit-zone" type="hidden" name="Zona_horaria" value="Hora local del visitante">
+                                <input type="hidden" name="Estado_de_cita" value="Pendiente de confirmación">
+                            </div>
+                        </details>
+                        <div class="form-field"><label for="message"><span data-i18n="label-help">Mensaje</span> <span aria-hidden="true">*</span></label><div class="field-control"><textarea id="message" name="message" class="form-control" rows="3" placeholder="¿En qué te podemos ayudar?" required data-i18n-ph="form-help"></textarea></div></div>
                         <button type="submit" class="btn btn-primary submit-button"><span data-i18n="form-btn">Enviar Mensaje</span><svg class="button-arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></button>
                         <p id="contact-status" class="form-hint" role="status" aria-live="polite"></p>
                     </form>

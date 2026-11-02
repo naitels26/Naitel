@@ -1,0 +1,80 @@
+/* Service exploration keeps the site's typography, palette and motion scale. */
+.service-page-hero { padding-block: 4px 20px; }
+.service-back { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 9px 0; border: 0; background: transparent; color: var(--heading-color); font-size: .8125rem; font-weight: 600; }
+.service-back > span:first-child { color: currentColor; font-size: 1.0625rem; font-weight: 700; }
+.service-back:hover { text-decoration: underline; text-underline-offset: 4px; }
+.service-page-heading { max-width: 850px; margin: 0 auto 12px; text-align: center; }
+.service-page-heading h1 { margin: 4px 0; font-size: clamp(2rem, 4.1vw, 3.25rem); line-height: 1.12; letter-spacing: -.04em; }
+.service-tagline { color: var(--text-secondary); font-size: clamp(1rem, 2vw, 1.25rem); }
+.service-page-image { position: relative; height: clamp(160px, 21vw, 240px); overflow: hidden; border-radius: 14px; background: var(--bg-secondary); }
+.service-page-image img { width: 100%; height: 100%; object-fit: cover; object-position: center 48%; }
+.service-page-image::after { content: ''; position: absolute; inset: 50% 0 0; background: linear-gradient(transparent, rgb(0 20 45 / 75%)); }
+.service-page-image figcaption { position: absolute; z-index: 1; bottom: 24px; left: 28px; padding-left: 12px; border-left: 3px solid var(--brand-orange); color: white; font-size: .8125rem; }
+.service-overview { display: grid; grid-template-columns: 1fr 2fr; gap: 32px; margin-top: 28px; }
+.service-overview h2 { align-self: center; padding-left: 44px; font-size: 1.375rem; }
+.service-overview p { max-width: 720px; color: var(--text-secondary); font-size: .9375rem; }
+.service-stages { border-block: 1px solid var(--border-color); }
+.service-stages h2, .service-disciplines h2, .service-cta h2 { margin-top: 12px; font-size: clamp(1.75rem, 3vw, 2.375rem); font-weight: 600; letter-spacing: -.03em; }
+.service-stage-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin-top: 32px; list-style: none; }
+.service-stage-grid li { position: relative; padding-top: 20px; border-top: 1px solid var(--border-color); }
+.service-stage-grid li::before { content: ''; position: absolute; top: -4px; left: 0; width: 7px; height: 7px; border-radius: 50%; background: var(--brand-orange); }
+.stage-number { color: var(--accent-text); font-size: .75rem; }
+.service-stage-grid h3 { margin: 10px 0 6px; font-size: 1.0625rem; }
+.service-stage-grid p { color: var(--text-secondary); font-size: .8125rem; }
+.service-disciplines { background: var(--bg-secondary); }
+.service-disciplines .section-heading { text-align: left; max-width: none; margin: 0 0 28px; }
+.service-disciplines .section-heading p { margin-top: 12px; color: var(--text-secondary); font-size: .9375rem; }
+.topic-nav { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 32px; }
+.topic-nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 16px; border: 1px solid var(--border-color); border-radius: 999px; background: var(--card-bg); color: var(--heading-color); font-size: .8125rem; }
+.topic-nav a:hover { border-color: var(--accent-text); color: var(--accent-text); }
+.discipline-group { scroll-margin-top: 100px; }
+.discipline-group + .discipline-group { margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--border-color); }
+.discipline-group-heading { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px; }
+.topic-number { margin-top: 4px; color: var(--accent-text); font-size: .75rem; }
+.discipline-group-heading h3 { font-size: 1.25rem; line-height: 1.4; }
+.discipline-group-heading p { margin-top: 6px; color: var(--text-secondary); font-size: .875rem; }
+.discipline-grid { display: grid; grid-template-columns: repeat(var(--topic-columns, 3), minmax(0, 1fr)); gap: 20px; }
+.discipline-card { position: relative; display: flex; flex-direction: column; min-width: 0; padding: 26px; border: 1px solid var(--border-color); border-radius: 12px; background: var(--card-bg); transition: transform var(--motion-base) var(--ease-out), border-color var(--motion-base) var(--ease-out), box-shadow var(--motion-base) var(--ease-out); }
+.discipline-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+.discipline-icon { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid var(--border-color); border-radius: 12px; color: var(--accent-text); background: var(--blue-surface); }
+.discipline-icon svg { width: 23px; height: 23px; }
+.discipline-top .card-index { color: var(--text-muted); font-size: .6875rem; }
+.discipline-photo { position: relative; height: 112px; overflow: hidden; margin-bottom: 18px; border-radius: 8px; background: var(--blue-surface); }
+.discipline-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--motion-base) var(--ease-out); }
+.discipline-photo .card-index { position: absolute; top: 10px; left: 10px; margin: 0; padding: 4px 7px; border-radius: 4px; background: #002d5b; color: #fff; font-size: .6875rem; }
+.discipline-card h4 { font-size: 1.125rem; line-height: 1.4; }
+.discipline-card > p { margin: 10px 0; color: var(--text-secondary); font-size: .875rem; }
+.discipline-card .card-open { min-height: 36px; padding: 0; justify-content: flex-end; border: 0; }
+.service-cta { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 32px; border-radius: 14px; background: var(--blue-surface); }
+.service-cta h2 { margin-bottom: 0; }
+.service-cta .btn { flex-shrink: 0; }
+.related-title { margin: 44px 0 20px; font-size: 1.25rem; }
+.related-services { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.related-service { display: flex; align-items: center; gap: 20px; overflow: hidden; padding-right: 20px; border: 1px solid var(--border-color); border-radius: 12px; color: var(--heading-color); }
+.related-service img { width: 120px; height: 100px; object-fit: cover; }
+.related-service > span:last-child { margin-left: auto; color: var(--accent-text); }
+@media (hover: hover) and (pointer: fine) {
+    .discipline-card:hover { transform: translateY(-4px); border-color: var(--accent-text); box-shadow: var(--shadow-hover); }
+    .discipline-card:hover .detail-plus { transform: rotate(90deg); }
+    .discipline-card:hover .discipline-photo img { transform: scale(1.04); }
+    .related-service:hover { border-color: var(--accent-text); }
+}
+@media (max-width: 900px) {
+    .discipline-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .service-overview { grid-template-columns: 1fr 1.6fr; }
+    .service-stage-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+    .service-page-heading { margin-top: 0; }
+    .service-overview, .discipline-grid, .related-services { grid-template-columns: minmax(0, 1fr); }
+    .service-overview { gap: 12px; margin-top: 28px; }
+    .service-stage-grid { gap: 24px 16px; }
+    .discipline-card { padding: 22px; }
+    .service-cta { flex-direction: column; align-items: stretch; padding: 24px; }
+    .service-cta .btn { text-align: center; }
+    .service-page-image figcaption { left: 20px; bottom: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .discipline-card:hover, .discipline-card:hover .detail-plus { transform: none; }
+    .discipline-card:hover .discipline-photo img { transform: none; }
+}

@@ -10,10 +10,20 @@ const translations = {
         "hero-intro": "Desarrollamos Data Centers llave en mano, con acreditación ATD, para mantener tu operación segura y disponible.",
         "services-eyebrow": "Portafolio de servicios",
         "view-details": "Ver detalles",
+        "view-service": "Explorar servicio",
+        "service-projects": "Proyectos de Tecnología",
+        "projects-summary": "Ingeniería, gestión e implementación llave en mano.",
+        "carousel-pause": "Pausar animación",
+        "carousel-resume": "Reanudar animación",
+        "carousel-role": "carrusel",
+        "service-licensing": "Licenciamiento de software",
         "view-project": "Ver proyecto",
         "dc-summary": "Centros de datos a tu medida, con energía, climatización y conectividad para mantener tu operación disponible.",
-        "cyb-summary": "Protección y control para tus redes y accesos.",
+        "cyb-summary": "Conectividad empresarial, redes inalámbricas y protección digital.",
         "sys-summary": "Video inteligente y control de acceso para tu operación.",
+        "hardware-summary": "Servidores, almacenamiento, hiperconvergencia, cómputo y movilidad.",
+        "licensing-summary": "Microsoft, AutoCAD, Minitab y las herramientas que necesita tu equipo.",
+        "software-summary": "Aplicaciones a medida, ERP, inventarios y monitoreo.",
         "close-details": "Cerrar detalles",
         "detail-contact": "Hablemos de esta solución",
         "detail-service": "Solución",
@@ -30,8 +40,8 @@ const translations = {
         "service-audio": "Audio y video",
         "service-fire": "Supresión de incendios",
         "service-software": "Desarrollo de software",
-        "service-hardware": "Consultoría de hardware",
-        "service-cabling": "Cableado estructurado y fibra óptica",
+        "service-hardware": "Equipo Activo",
+        "service-cabling": "Infraestructura de redes",
         "service-networks": "Redes",
         "service-security": "Sistemas de seguridad",
         "service-smart": "Espacios de trabajo inteligentes",
@@ -82,7 +92,7 @@ const translations = {
         "about-value-5": "Humildad",
         "about-value-6": "Curiosidad",
         
-        "cyb-title": "Ciberseguridad",
+        "cyb-title": "Networking y Ciberseguridad",
         
         "sys-title": "Sistemas Especiales",
         
@@ -125,7 +135,27 @@ const translations = {
         "label-name": "Nombre completo",
         "label-email": "Correo electrónico",
         "label-company": "Empresa (opcional)",
+        "label-service": "Servicio de interés",
+        "service-select-placeholder": "Selecciona un servicio",
+        "service-guidance": "Necesito orientación",
+        "calendar-open": "Abrir calendario",
+        "calendar-prev": "Mes anterior",
+        "calendar-next": "Mes siguiente",
+        "calendar-today": "Hoy",
+        "calendar-close": "Cerrar",
         "label-help": "Mensaje",
+        "visit-title": "Proponer una visita o reunión",
+        "visit-note": "Propón fecha y hora. Te contactaremos para confirmar disponibilidad.",
+        "visit-mode-label": "Tipo de reunión",
+        "visit-onsite": "Visita a tus instalaciones",
+        "visit-branch": "Reunión en sucursal Naitel",
+        "visit-video": "Videollamada",
+        "visit-date-label": "Fecha propuesta",
+        "visit-time-label": "Hora propuesta",
+        "visit-location-label": "Ciudad y lugar de la visita",
+        "visit-timezone": "Horario de tu dispositivo:",
+        "visit-date-past": "Elige una fecha de hoy en adelante.",
+        "visit-time-past": "Elige una fecha y hora futuras.",
         "map-label": "Mapa de nuestras sucursales",
         "map-fallback": "Nuestras ubicaciones están disponibles en la lista inferior.",
         "locations-label": "Sucursales",
@@ -148,10 +178,20 @@ const translations = {
         "hero-intro": "We deliver turnkey Data Centers with ATD accreditation to keep your operation secure and available.",
         "services-eyebrow": "Service portfolio",
         "view-details": "View details",
+        "view-service": "Explore service",
+        "service-projects": "Technology Projects",
+        "projects-summary": "Engineering, management and turnkey implementation.",
+        "carousel-pause": "Pause animation",
+        "carousel-resume": "Resume animation",
+        "carousel-role": "carousel",
+        "service-licensing": "Software licensing",
         "view-project": "View project",
         "dc-summary": "Data centers tailored to you, with power, cooling and connectivity to keep your operation available.",
-        "cyb-summary": "Protection and control for your networks and access.",
+        "cyb-summary": "Enterprise connectivity, wireless networks and digital protection.",
         "sys-summary": "Intelligent video and access control for your operation.",
+        "hardware-summary": "Servers, storage, hyperconvergence, computing and mobility.",
+        "licensing-summary": "Microsoft, AutoCAD, Minitab and the tools your team needs.",
+        "software-summary": "Custom applications, ERP, inventory and monitoring.",
         "close-details": "Close details",
         "detail-contact": "Let's talk about this solution",
         "detail-service": "Solution",
@@ -168,8 +208,8 @@ const translations = {
         "service-audio": "Audio and video",
         "service-fire": "Fire suppression",
         "service-software": "Software development",
-        "service-hardware": "Hardware consulting",
-        "service-cabling": "Structured cabling and fiber optics",
+        "service-hardware": "Active IT Equipment",
+        "service-cabling": "Network infrastructure",
         "service-networks": "Networks",
         "service-security": "Security systems",
         "service-smart": "Smart workspaces",
@@ -220,7 +260,7 @@ const translations = {
         "about-value-5": "Humility",
         "about-value-6": "Curiosity",
         
-        "cyb-title": "Cybersecurity",
+        "cyb-title": "Networking and Cybersecurity",
         
         "sys-title": "Special Systems",
         
@@ -263,7 +303,27 @@ const translations = {
         "label-name": "Full name",
         "label-email": "Email address",
         "label-company": "Company (optional)",
+        "label-service": "Service of interest",
+        "service-select-placeholder": "Select a service",
+        "service-guidance": "I need guidance",
+        "calendar-open": "Open calendar",
+        "calendar-prev": "Previous month",
+        "calendar-next": "Next month",
+        "calendar-today": "Today",
+        "calendar-close": "Close",
         "label-help": "Message",
+        "visit-title": "Propose a visit or meeting",
+        "visit-note": "Propose a date and time. We’ll contact you to confirm availability.",
+        "visit-mode-label": "Meeting type",
+        "visit-onsite": "Visit to your facilities",
+        "visit-branch": "Meeting at a Naitel branch",
+        "visit-video": "Video call",
+        "visit-date-label": "Proposed date",
+        "visit-time-label": "Proposed time",
+        "visit-location-label": "City and meeting location",
+        "visit-timezone": "Your device’s time zone:",
+        "visit-date-past": "Choose today or a future date.",
+        "visit-time-past": "Choose a future date and time.",
         "map-label": "Map of our branches",
         "map-fallback": "Our locations are available in the list below.",
         "locations-label": "Branches",
@@ -282,13 +342,15 @@ const placeholders = {
         "form-name": "Nombre completo",
         "form-email": "Correo electrónico",
         "form-company": "Empresa",
-        "form-help": "¿En qué te podemos ayudar?"
+        "form-help": "¿En qué te podemos ayudar?",
+        "visit-location": "Ej. Ciudad Juárez, instalaciones de mi empresa"
     },
     en: {
         "form-name": "Full name",
         "form-email": "Email address",
         "form-company": "Company",
-        "form-help": "How can we help you?"
+        "form-help": "How can we help you?",
+        "visit-location": "E.g. Ciudad Juárez, our company facilities"
     }
 };
 
@@ -336,10 +398,10 @@ const placeholders = {
             const value = placeholders[lang][element.dataset.i18nPh];
             if (value) element.setAttribute('placeholder', value);
         });
-        ['aria', 'alt'].forEach(attribute => {
+        ['aria', 'alt', 'roledescription'].forEach(attribute => {
             document.querySelectorAll(`[data-i18n-${attribute}]`).forEach(element => {
                 const value = translations[lang][element.getAttribute(`data-i18n-${attribute}`)];
-                if (value) element.setAttribute(attribute === 'aria' ? 'aria-label' : 'alt', value);
+                if (value) element.setAttribute(attribute === 'aria' ? 'aria-label' : attribute === 'roledescription' ? 'aria-roledescription' : 'alt', value);
             });
         });
         document.dispatchEvent(new CustomEvent('languagechange'));

@@ -20,7 +20,7 @@
     });
 
     // Type once on load/language change. Every character keeps its layout space.
-    const heading = document.getElementById('hero-title');
+    const heading = document.querySelector('#hero-title, #service-title');
     let typingTimer;
     function finishTyping() {
         window.clearTimeout(typingTimer);
@@ -32,14 +32,23 @@
         finishTyping();
         if (!heading || motionPreference.matches || document.hidden) return;
         const characters = [];
-        heading.querySelectorAll('.hero-line').forEach(line => {
+        heading.setAttribute('aria-label', heading.textContent.trim());
+        const lines = heading.querySelectorAll('.hero-line');
+        (lines.length ? [...lines] : [heading]).forEach(line => {
             const fragment = document.createDocumentFragment();
-            for (const character of Array.from(line.textContent)) {
-                const span = document.createElement('span');
-                span.className = 'typing-char';
-                span.textContent = character;
-                fragment.append(span);
-                characters.push(span);
+            for (const token of line.textContent.split(/(\s+)/u)) {
+                if (!token) continue;
+                const word = document.createElement('span');
+                word.className = /^\s+$/u.test(token) ? 'typing-space' : 'typing-word';
+                word.setAttribute('aria-hidden', 'true');
+                for (const character of Array.from(token)) {
+                    const span = document.createElement('span');
+                    span.className = 'typing-char';
+                    span.textContent = character;
+                    word.append(span);
+                    characters.push(span);
+                }
+                fragment.append(word);
             }
             line.replaceChildren(fragment);
         });
@@ -57,10 +66,11 @@
         }
         revealCharacter();
     }
-    document.addEventListener('languagechange', typeHeading);
+    document.addEventListener('languagechange', () => { if (heading?.id === 'hero-title') typeHeading(); });
+    document.addEventListener('service-heading-ready', typeHeading);
     document.addEventListener('visibilitychange', () => { if (document.hidden) finishTyping(); });
     motionPreference.addEventListener('change', event => { if (event.matches) finishTyping(); });
-    typeHeading();
+    if (heading?.id === 'hero-title') typeHeading();
 
     // Mobile disclosure: closed links are removed from keyboard/accessibility navigation.
     const menuButton = document.querySelector('.mobile-menu-btn');
@@ -147,26 +157,33 @@
     });
 
     // Compact service carousel: native horizontal scroll plus small, keyboard-friendly controls.
-    function initializeServiceCarousel() {
-        const carousel = document.querySelector('[data-service-carousel]');
-        if (!carousel) return;
-        const viewport = carousel.querySelector('.service-chip-viewport');
+    function initializeServiceCarousel(carousel) {
+        const viewport = carousel.querySelector('.service-chip-viewport, .service-card-viewport');
         const previous = carousel.querySelector('[data-service-prev]');
         const next = carousel.querySelector('[data-service-next]');
-        const progress = carousel.closest('.service-catalog')?.querySelector('[data-service-progress]');
+        const progress = carousel.querySelector('[data-service-progress]') || carousel.closest('.service-catalog')?.querySelector('[data-service-progress]');
+        const pauseButton = carousel.querySelector('[data-service-pause]');
         if (!viewport || !previous || !next) return;
         let autoTimer;
-        const visibleItems = () => [...viewport.querySelectorAll('.service-chip:not([hidden])')];
+        let paused = false;
+        const track = viewport.querySelector('.service-chip-grid, .bento-grid');
+        const visibleItems = () => [...viewport.querySelectorAll('.service-chip:not([hidden]), .service-card')];
         const updateControls = () => {
             const maxScroll = Math.max(0, viewport.scrollWidth - viewport.clientWidth);
             const items = visibleItems();
             const first = items[0];
-            const gap = parseFloat(getComputedStyle(viewport.querySelector('.service-chip-grid')).columnGap) || 10;
+            const gap = parseFloat(getComputedStyle(track).columnGap) || 10;
             const step = (first?.getBoundingClientRect().width || viewport.clientWidth * 0.75) + gap;
             const index = Math.min(items.length - 1, Math.max(0, Math.round(viewport.scrollLeft / step)));
             previous.disabled = viewport.scrollLeft <= 2;
             next.disabled = viewport.scrollLeft >= maxScroll - 2;
             items.forEach((item, itemIndex) => item.classList.toggle('is-active', itemIndex === index));
+            if (pauseButton) {
+                const lang = root.lang === 'en' ? 'en' : 'es';
+                pauseButton.textContent = translations[lang][paused ? 'carousel-resume' : 'carousel-pause'];
+                pauseButton.setAttribute('aria-pressed', String(paused));
+                pauseButton.hidden = motionPreference.matches;
+            }
             if (progress) {
                 const scrollRatio = items.length ? (maxScroll > 2 ? Math.max(1 / items.length, viewport.scrollLeft / maxScroll) : 1) : 0;
                 progress.style.transform = `scaleX(${Math.min(1, scrollRatio)})`;
@@ -174,7 +191,7 @@
         };
         const move = direction => {
             const item = visibleItems()[0];
-            const gap = parseFloat(getComputedStyle(viewport.querySelector('.service-chip-grid')).columnGap) || 10;
+            const gap = parseFloat(getComputedStyle(track).columnGap) || 10;
             const distance = (item?.getBoundingClientRect().width || viewport.clientWidth * 0.75) + gap;
             viewport.scrollBy({ left: direction * distance, behavior: motionPreference.matches ? 'auto' : 'smooth' });
         };
@@ -184,8 +201,9 @@
         };
         const startAuto = () => {
             stopAuto();
-            if (motionPreference.matches || document.hidden) return;
+            if (paused || motionPreference.matches || document.hidden) return;
             autoTimer = window.setInterval(() => {
+                if (carousel.matches(':hover') || carousel.contains(document.activeElement) || root.classList.contains('detail-open')) return;
                 const maxScroll = Math.max(0, viewport.scrollWidth - viewport.clientWidth);
                 if (maxScroll <= 2) return;
                 if (viewport.scrollLeft >= maxScroll - 4) {
@@ -193,8 +211,13 @@
                 } else {
                     move(1);
                 }
-            }, 2200);
+            }, Number(carousel.dataset.interval) || 2200);
         };
+        pauseButton?.addEventListener('click', () => {
+            paused = !paused;
+            if (paused) stopAuto(); else startAuto();
+            updateControls();
+        });
         previous.addEventListener('click', () => move(-1));
         next.addEventListener('click', () => move(1));
         viewport.addEventListener('scroll', updateControls, { passive: true });
@@ -208,13 +231,13 @@
         viewport.addEventListener('pointerdown', stopAuto, { passive: true });
         viewport.addEventListener('pointerup', startAuto, { passive: true });
         document.addEventListener('visibilitychange', () => document.hidden ? stopAuto() : startAuto());
-        motionPreference.addEventListener('change', event => event.matches ? stopAuto() : startAuto());
+        motionPreference.addEventListener('change', event => { updateControls(); if (event.matches) stopAuto(); else startAuto(); });
         document.addEventListener('languagechange', updateControls);
         document.addEventListener('details-ready', () => { updateControls(); startAuto(); }, { once: true });
         window.setTimeout(updateControls, 0);
         startAuto();
     }
-    initializeServiceCarousel();
+    document.querySelectorAll('[data-service-carousel]').forEach(initializeServiceCarousel);
 
     // Native POST lets the mail service validate and confirm delivery.
     // Keep form values if the visitor navigates back after a failed submission.

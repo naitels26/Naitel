@@ -12,6 +12,7 @@
         sending: 'Sending your message…', success: 'Success!',
         slow: 'Delivery is taking a little longer. Please keep this page open…',
         sent: 'Your message was sent to our sales team. We will contact you soon.',
+        visitSent: 'Your proposed visit or meeting was sent to our sales team. We will contact you to confirm the date, time and details. The appointment is pending confirmation.',
         error: 'Unable to send', failed: 'We could not confirm your submission. Your information is still here. Please try again or call us.',
         pending: 'Temporarily unavailable', activation: 'We cannot process your message right now. Your information is still here. Please try again later or call us.',
         local: 'Open this page from the local preview or the published website to send your message. Your information is still here.',
@@ -23,6 +24,7 @@
         sending: 'Enviando tu mensaje…', success: '¡Éxito!',
         slow: 'El envío está tardando un poco más. Mantén esta página abierta…',
         sent: 'Tu mensaje se envió a nuestro equipo de ventas. Pronto nos pondremos en contacto contigo.',
+        visitSent: 'Tu propuesta de visita o reunión se envió a nuestro equipo de ventas. Te contactaremos para confirmar la fecha, el horario y los detalles. La cita queda pendiente de confirmación.',
         error: 'No se pudo enviar', failed: 'No pudimos confirmar el envío. Conservamos tus datos para que puedas intentarlo de nuevo. También puedes llamarnos.',
         pending: 'Servicio temporalmente no disponible', activation: 'No podemos procesar tu mensaje en este momento. Conservamos tus datos. Inténtalo más tarde o comunícate por teléfono.',
         local: 'Abre esta página desde la vista previa local o el sitio publicado para enviar tu mensaje. Conservamos tus datos.',
@@ -54,8 +56,10 @@
         // El proveedor puede tardar más de 20 segundos en procesar la solicitud.
         const slowNotice = window.setTimeout(() => { status.textContent = copy().slow; }, 12000);
         const timeout = window.setTimeout(() => controller.abort(), 60000);
+        const visitRequested = Boolean(form.querySelector('[data-appointment-panel]')?.open);
         try {
             const payload = new URLSearchParams(new FormData(form));
+            if (visitRequested) payload.set('_subject', 'Propuesta de visita o reunión — Naitel');
             // FormSubmit espera direcciones válidas cuando se incluye _cc.
             if (!payload.get('_cc')?.trim()) payload.delete('_cc');
             const response = await fetch(endpoint.href, {
@@ -78,7 +82,7 @@
                 showResult('pending', copy().pending, copy().activation);
             } else if (response.ok && (result.success === true || result.success === 'true')) {
                 form.reset();
-                showResult('success', copy().success, copy().sent);
+                showResult('success', copy().success, visitRequested ? copy().visitSent : copy().sent);
             } else {
                 console.warn('Contact delivery rejected', {
                     status: response.status,

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <title>Sistemas Especiales | Naitel</title>
+    <meta name="description" content="Integramos video, analítica avanzada, control de acceso y protección contra incendios. Sistemas que ayudan a observar, controlar y proteger las áreas clave de tu instalación.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="assets/fonts/D3Euronism.ttf" as="font" type="font/ttf" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/expressive.css">
+    <link rel="icon" href="assets/images/naitels-symbol.svg" type="image/svg+xml">
+    <script src="js/translations.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/service-data.js" defer></script>
+    <script src="js/service-view.js" defer></script>
+    <script src="js/details.js" defer></script>
+    <link rel="stylesheet" href="css/service-pages.css">
+</head>
+<body data-service-page="special-systems">
+    <a class="skip-link" href="#contenido" data-i18n="skip-link">Saltar al contenido</a>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html#inicio" class="logo" aria-label="Naitels, inicio" data-i18n-aria="home-label">
+                <svg class="brand-symbol" viewBox="16 56 168 88" aria-hidden="true" focusable="false">
+                    <path fill="#f15f2a" d="M20 86C38 53 136 52 169 68C198 83 173 112 130 118C164 106 184 83 160 73C128 59 49 62 20 86Z"/>
+                    <path fill="currentColor" d="M66 67C102 58 159 60 171 79C183 100 153 113 129 118C159 101 172 83 148 72C131 64 96 64 66 67Z"/>
+                    <path fill="#f15f2a" d="M72 80C34 93 17 114 40 126C77 144 151 132 181 115C161 145 63 151 27 130C3 117 20 91 72 80Z"/>
+                    <path fill="currentColor" d="M72 80C47 92 23 113 45 125C64 134 111 137 145 128C112 143 48 139 31 126C17 114 38 87 72 80Z"/>
+                    <circle cx="100.5" cy="101" r="22" fill="currentColor"/>
+                </svg>
+                <span class="brand-name" aria-hidden="true">Naitel</span>
+            </a>
+            <nav class="site-nav" id="site-nav" aria-label="Navegación principal" data-i18n-aria="nav-label">
+                <ul>
+                    <li><a class="nav-link" href="index.html#servicios" data-i18n="nav-services">Servicios</a></li>
+                    <li><a class="nav-link" href="index.html#exito" data-i18n="nav-cases">Casos de Éxito</a></li>
+                    <li><a class="nav-link" href="index.html#nosotros" data-i18n="nav-about">Nosotros</a></li>
+                    <li><a class="nav-link" href="index.html#industrias" data-i18n="nav-ind">Industrias</a></li>
+                    <li><a href="index.html#contacto" class="btn btn-secondary nav-contact" data-i18n="nav-contact">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button id="lang-toggle" class="icon-button language-toggle" type="button" aria-label="Switch to English" lang="en">EN</button>
+                <button id="theme-toggle" class="icon-button" type="button" aria-label="Tema oscuro" aria-pressed="false" data-i18n-aria="theme-label">
+                    <svg class="moon-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+                    <svg class="sun-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+                </button>
+                <button class="icon-button mobile-menu-btn" type="button" aria-label="Menú principal" data-i18n-aria="menu-label" aria-expanded="false" aria-controls="site-nav">
+                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path class="menu-line menu-line-top" d="M4 7h16"/><path class="menu-line menu-line-middle" d="M4 12h16"/><path class="menu-line menu-line-bottom" d="M4 17h16"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+    <main id="contenido" tabindex="-1">
+        <section class="service-page-hero section-padding" aria-labelledby="service-title">
+            <div class="container">
+                <a class="service-back" href="index.html#servicios"><span aria-hidden="true">←</span><span data-service-label="back">Todos los servicios</span></a>
+                <div class="service-page-heading reveal">
+                    <h1 id="service-title" data-service-copy="title">Sistemas Especiales</h1>
+                    <p class="service-tagline" data-service-copy="intro">Espacios más seguros. Sistemas conectados.</p>
+                </div>
+                <figure class="service-page-image reveal"><img src="assets/images/case_industrial.png" alt="" width="1024" height="1024" fetchpriority="high"><figcaption data-service-copy="title">Sistemas Especiales</figcaption></figure>
+                <div class="service-overview reveal"><h2 data-service-label="about">Sobre esta solución</h2><p data-service-copy="about">Integramos video, analítica avanzada, control de acceso y protección contra incendios. Sistemas que ayudan a observar, controlar y proteger las áreas clave de tu instalación.</p></div>
+            </div>
+        </section>
+        <section class="service-disciplines section-padding" aria-labelledby="disciplines-title">
+            <div class="container">
+                <div class="section-heading reveal"><h2 id="disciplines-title" data-service-label="disciplines">Áreas de servicio</h2></div>
+                
+                <section class="discipline-group" id="topic-0" aria-labelledby="topic-title-0">
+                    <div class="discipline-group-heading reveal"><span class="topic-number" aria-hidden="true">01</span><div><h3 id="topic-title-0" data-service-group="0:title">Seguridad física integrada</h3><p data-service-group="0:description">Video, accesos y protección contra incendios conectados.</p></div></div>
+                    <div class="discipline-grid" style="--topic-columns: 3">
+                    <article class="discipline-card reveal">
+                        <div class="discipline-photo"><img src="assets/images/services/disciplines/sys-cctv-v1.jpg" alt="" width="960" height="640" loading="lazy" decoding="async"><span class="card-index" aria-hidden="true">01 /</span></div>
+                        <h4 id="discipline-sys-cctv" data-discipline-copy="sys-cctv:title">CCTV inteligente y VMS</h4>
+                        <p data-discipline-copy="sys-cctv:summary">Video profesional, analítica avanzada e inteligencia artificial.</p>
+                        <button type="button" class="card-open" data-detail="sys-cctv" aria-labelledby="discipline-sys-cctv" hidden><span class="detail-plus" aria-hidden="true">+</span></button>
+                    </article>
+                    <article class="discipline-card reveal">
+                        <div class="discipline-photo"><img src="assets/images/services/disciplines/sys-access-v1.jpg" alt="" width="960" height="640" loading="lazy" decoding="async"><span class="card-index" aria-hidden="true">02 /</span></div>
+                        <h4 id="discipline-sys-access" data-discipline-copy="sys-access:title">Control de acceso y VMS</h4>
+                        <p data-discipline-copy="sys-access:summary">Accesos conectados con la gestión de video.</p>
+                        <button type="button" class="card-open" data-detail="sys-access" aria-labelledby="discipline-sys-access" hidden><span class="detail-plus" aria-hidden="true">+</span></button>
+                    </article>
+                    <article class="discipline-card reveal">
+                        <div class="discipline-photo"><img src="assets/images/services/disciplines/fire-suppression-v1.jpg" alt="" width="960" height="640" loading="lazy" decoding="async"><span class="card-index" aria-hidden="true">03 /</span></div>
+                        <h4 id="discipline-fire-suppression" data-discipline-copy="fire-suppression:title">Supresión de incendios</h4>
+                        <p data-discipline-copy="fire-suppression:summary">Protección para instalaciones y equipos.</p>
+                        <button type="button" class="card-open" data-detail="fire-suppression" aria-labelledby="discipline-fire-suppression" hidden><span class="detail-plus" aria-hidden="true">+</span></button>
+                    </article>
+                    </div>
+                </section>
+                <noscript><p>Activa JavaScript para explorar los detalles. / Enable JavaScript to explore details.</p></noscript>
+            </div>
+        </section>
+        <section class="service-next section-padding">
+            <div class="container">
+                <div class="service-cta"><div><h2 data-service-label="cta">Hablemos de tu proyecto.</h2></div><a class="btn btn-primary" href="index.html#contact-form" data-service-label="advice">Solicitar asesoría ↗</a></div>
+                <h2 class="related-title" data-service-label="related">Otros servicios</h2>
+                <div class="related-services">
+                    <a class="related-service" href="ciberseguridad.html"><img src="assets/images/case_network.png" alt="" width="160" height="100" loading="lazy"><span data-related-service="cybersecurity">Networking y Ciberseguridad</span><span aria-hidden="true">↗</span></a>
+                    <a class="related-service" href="proyectos-tecnologia.html"><img src="assets/images/case_datacenter.png" alt="" width="160" height="100" loading="lazy"><span data-related-service="projects">Proyectos de Tecnología</span><span aria-hidden="true">↗</span></a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <dialog class="detail-dialog" id="detail-dialog" aria-labelledby="detail-title">
+        <button class="detail-close icon-button" type="button" data-i18n-aria="close-details" aria-label="Cerrar detalles" autofocus><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+        <div class="detail-panel">
+            <div class="detail-visual"><img id="detail-image" src="assets/images/datacenter.png" alt="" width="1024" height="1024" loading="lazy"><span class="detail-label" id="detail-label"></span></div>
+            <div class="detail-copy">
+                <h2 id="detail-title"></h2>
+                <p class="detail-description" id="detail-description"></p>
+                <h3 class="detail-section-title" id="detail-section-title"></h3>
+                <ul class="detail-points" id="detail-points"></ul>
+                <a class="btn btn-primary detail-contact" href="index.html#contact-form" data-i18n="detail-contact">Hablemos de esta solución</a>
+            </div>
+        </div>
+    </dialog>
+    <footer class="site-footer"><div class="container"><p data-i18n="footer">© 2026 Naitel Inc. Todos los derechos reservados.</p></div></footer>
+</body>
+</html>

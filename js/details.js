@@ -107,6 +107,7 @@
         'security-systems': { type: 'service', title: { es: 'Sistemas de seguridad', en: 'Security systems' }, image: 'case_industrial.png', description: { es: 'Tecnología para observar, controlar y responder a eventos relevantes de la operación.', en: 'Technology to observe, control and respond to relevant operational events.' }, es: [['Video', 'Monitoreo para apoyar la revisión de eventos.'], ['Accesos', 'Control de ingreso según las áreas definidas.']], en: [['Video', 'Monitoring to support event review.'], ['Access', 'Entry control according to defined areas.']] },
         'smart-workspaces': { type: 'service', title: { es: 'Espacios de trabajo inteligentes', en: 'Smart workspaces' }, image: 'case_datacenter.png', description: { es: 'Entornos de trabajo conectados, cómodos y listos para colaborar.', en: 'Connected, comfortable work environments ready for collaboration.' }, es: [['Automatización', 'Tecnología que simplifica tareas cotidianas.'], ['Experiencia', 'Espacios pensados para las personas que los usan.']], en: [['Automation', 'Technology that simplifies daily tasks.'], ['Experience', 'Spaces designed around the people who use them.']] }
     };
+    if (typeof serviceDisciplines !== 'undefined') Object.assign(content, serviceDisciplines);
     const dialog = document.getElementById('detail-dialog');
     if (!dialog || typeof dialog.showModal !== 'function' || typeof translations === 'undefined') return;
     const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -181,7 +182,12 @@
     dialog.addEventListener('click', event => { if (startedOutside && outside(event)) closeDetail(); });
     dialog.querySelector('.detail-contact').addEventListener('click', event => {
         event.preventDefault();
+        const contactHref = event.currentTarget.href;
         closeDetail(() => {
+            if (!document.getElementById('contact-form')) {
+                window.location.assign(contactHref);
+                return;
+            }
             window.location.hash = 'contacto';
             document.getElementById('full-name')?.focus({ preventScroll: true });
         });
