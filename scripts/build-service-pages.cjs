@@ -39,7 +39,7 @@ for (const [key, page] of Object.entries(servicePages)) {
     const groups = page.groups.map((group, index) => `
                 <section class="discipline-group" id="topic-${index}" aria-labelledby="topic-title-${index}">
                     <div class="discipline-group-heading reveal"><span class="topic-number" aria-hidden="true">${String(index + 1).padStart(2, '0')}</span><div><h3 id="topic-title-${index}" data-service-group="${index}:title">${escape(group.title.es)}</h3><p data-service-group="${index}:description">${escape(group.description.es)}</p></div></div>
-                    <div class="discipline-grid" style="--topic-columns: ${Math.min(3, group.items.length)}">${group.items.map(id => card(id, page.disciplines.indexOf(id))).join('')}
+                    <div class="discipline-grid topic-columns-${Math.min(3, group.items.length)}">${group.items.map(id => card(id, page.disciplines.indexOf(id))).join('')}
                     </div>
                 </section>`).join('');
     const topicNav = key !== 'data-centers' && page.groups.length > 1 ? `<nav class="topic-nav" aria-label="Temas de esta solución" data-service-topic-nav>${page.groups.map((group, index) => `<a href="#topic-${index}" data-service-group="${index}:title">${escape(group.title.es)}</a>`).join('')}</nav>` : '';

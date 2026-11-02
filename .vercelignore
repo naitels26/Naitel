@@ -1,0 +1,10 @@
+.git/
+.github/
+.review/
+dist/
+node_modules/
+.env
+.env.*
+*.log
+*.zip
+*.md

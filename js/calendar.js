@@ -4,6 +4,7 @@
     if (!root) return;
     const input = document.getElementById('visit-date');
     const popup = document.getElementById('visit-calendar');
+    if (typeof popup.showModal !== 'function') return;
     const trigger = root.querySelector('[data-calendar-trigger]');
     const title = document.getElementById('visit-calendar-title');
     const weekdays = root.querySelector('[data-calendar-weekdays]');
@@ -66,6 +67,7 @@
         if (restoreFocus) days.querySelector(`[data-date="${focusDate}"]`)?.focus({ preventScroll: true });
     }
     function close(restoreFocus = true) {
+        if (popup.open) popup.close();
         popup.hidden = true;
         trigger.setAttribute('aria-expanded', 'false');
         if (restoreFocus) trigger.focus({ preventScroll: true });
@@ -78,6 +80,7 @@
         focusDate = dateKey(start);
         popup.hidden = false;
         trigger.setAttribute('aria-expanded', 'true');
+        if (!popup.open) popup.showModal();
         render(true);
     }
     function changeMonth(direction) {
@@ -133,6 +136,14 @@
         month = new Date(today().getFullYear(), today().getMonth(), 1); focusDate = dateKey(today()); render(true);
     });
     root.querySelector('[data-calendar-close]').addEventListener('click', () => close());
+    popup.addEventListener('cancel', event => { event.preventDefault(); close(); });
+    let pressedBackdrop = false;
+    const outside = event => {
+        const bounds = popup.getBoundingClientRect();
+        return event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom;
+    };
+    popup.addEventListener('pointerdown', event => { pressedBackdrop = event.target === popup && outside(event); });
+    popup.addEventListener('click', event => { if (pressedBackdrop && event.target === popup && outside(event)) close(); });
     root.addEventListener('keydown', event => { if (event.key === 'Escape' && !popup.hidden) { event.preventDefault(); close(); } });
     document.addEventListener('pointerdown', event => { if (!root.contains(event.target)) close(false); });
     document.addEventListener('focusin', event => { if (!root.contains(event.target)) close(false); });

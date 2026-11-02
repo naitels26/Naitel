@@ -61,6 +61,24 @@ La fuente Inter se obtiene de Google Fonts y tiene alternativas del sistema. No 
 
 ## Formulario en Vercel
 
+### Publicación reforzada
+
+El proyecto ahora incluye `vercel.json`. Vercel debe ejecutar `node scripts/build-public.cjs && node scripts/security-check.cjs` y servir `dist/`. La salida se genera automáticamente; no debe subirse manualmente a Git. Los respaldos, revisiones, scripts de construcción y documentación quedan fuera de los archivos servidos. Las nuevas cabeceras CSP y de seguridad se activarán con el siguiente despliegue. Los detalles, resultados y límites de la revisión están en `SEGURIDAD.md`.
+
+### Propuestas de visita o reunión
+
+El formulario se compactó con campos de empresa y servicio en el mismo renglón, espacios más cortos y mensaje de tres filas. “Servicio de interés” es obligatorio e incluye las siete divisiones y “Necesito orientación”; se envía como `Servicio_de_interes` con la consulta o propuesta de visita.
+
+El calendario visual (`js/calendar.js`) abre un diálogo compacto en la capa superior del navegador, con un fondo tenue. No cambia la altura del formulario ni deja un hueco entre los campos. Se cierra al elegir fecha, con Escape, al tocar el fondo o con Cerrar. El foco de teclado usa un contorno discreto dentro del calendario. Incluye meses navegables, días pasados deshabilitados, indicador de hoy y fecha seleccionada. Respeta el tema y el idioma del sitio. Admite teclado (flechas, Inicio/Fin, Page Up/Down y Escape), cierre al salir del calendario y conserva el campo nativo como respaldo si no carga la mejora. La fecha sigue siendo una propuesta pendiente de confirmación; no representa disponibilidad reservada.
+
+Pruebas: `node .review/calendar-check.cjs` cubre selección, años bisiestos, cambios de mes/año, teclado, ES/EN y cierre. `node .review/appointments-check.cjs` también verifica que se elija y envíe un servicio. La revisión visual en navegador permanece pendiente.
+
+El formulario incluye el apartado desplegable “Proponer una visita o reunión”, con calendario nativo, hora, modalidad (instalaciones del cliente, sucursal o videollamada) y ciudad/lugar para reuniones presenciales. Los campos de agenda solo se habilitan y exigen cuando se abre el apartado. Se valida que la propuesta sea futura usando la hora local del dispositivo, y se envía la zona horaria para que el equipo pueda coordinar el horario. No se publican horarios disponibles ni se reserva un espacio automáticamente: la solicitud queda pendiente de confirmación por el equipo receptor del formulario.
+
+`js/appointments.js` gestiona campos y validación; `js/contact.js` envía la propuesta con el asunto “Propuesta de visita o reunión — Naitel”. Conserva los datos si falla el envío y limpia/cierra el apartado después de una respuesta aceptada. Las consultas sin cita mantienen el flujo actual. Los destinatarios siguen siendo los configurados en `index.html`; no se modificaron al añadir la agenda. Los campos con nombre se incluyen en el correo según la [documentación de FormSubmit](https://formsubmit.co/help).
+
+Prueba: `node .review/appointments-check.cjs`. Cubre consultas sin cita, obligatoriedad condicional, fechas/horas pasadas, reuniones presenciales y remotas, zona horaria, datos enviados, ES/EN, reinicio tras éxito y conservación tras error. Las solicitudes se simulan: no se envían correos ni se valida la recepción real en el buzón. La revisión visual del calendario nativo en navegador sigue pendiente.
+
 La página funciona como sitio estático en Vercel. Con JavaScript, js/contact.js obtiene el destinatario del atributo `action` del formulario en `index.html` y envía los campos por HTTPS al endpoint AJAX de FormSubmit. No requiere variables de entorno, PHP ni un backend en Vercel. FormSubmit es el servicio externo encargado del correo.
 
 ### Cambiar destinatarios y hacer pruebas
@@ -104,6 +122,20 @@ Destinatario: ventas@naitel.com, sin mostrarlo junto al formulario ni en las ale
 
 
 ## Portada de servicios — 2 de noviembre de 2026
+
+### Organización basada en el portafolio corporativo facilitado
+
+Se tomó del ZIP `NAITEL_Portafolio_Corporativo_v8_Partners_Autorizados.zip` la relación entre siete divisiones: Sistemas Especiales, Desarrollo de Software, Data Centers, Networking y Ciberseguridad, Equipo Activo, Licenciamiento y Proyectos de Tecnología. El mapa actualizado está en `.review/PORTAFOLIO-ESTRUCTURA.md`. El carrusel conserva su funcionamiento y añade la séptima división. Se mantienen las rutas existentes; Proyectos de Tecnología utiliza `proyectos-tecnologia.html`.
+
+Las especialidades se agrupan dentro de cada división y sus modales reúnen los subtemas relacionados. Energía crítica incluye calidad de energía y sistema de tierras; Infraestructura de redes incluye fibra, cableado, canalizaciones y diseño; CCTV incluye VMS, analítica e IA; Equipo Activo distingue servidores/hiperconvergencia, almacenamiento y cómputo/movilidad; Software distingue aplicaciones, ERP/inventarios y monitoreo/DCIM. Licenciamiento conserva Microsoft, Autodesk y Minitab y añade cloud/adopción. Los enlaces de otros servicios se seleccionan por su relación técnica.
+
+No se importó el diseño del ejemplo. Se comprobó por hash que todos los CSS y `js/main.js` permanecen intactos respecto al inicio de esta reorganización. La estructura y la información se adaptaron en español e inglés con las mismas tarjetas, imágenes, modales y animaciones. Las siete vistas se generan con `node scripts/build-service-pages.cjs`.
+
+Las disciplinas de cada vista se agrupan por temas con encabezados propios. Data Centers separa energía/protección eléctrica, climatización/control y conectividad/plataformas; Sistemas Especiales separa videovigilancia/inteligencia y accesos/protección de instalaciones. Se añadieron accesos a cada bloque cuando hay varios temas. Las tarjetas muestran una miniatura de la misma imagen que abre su modal. Se generaron 19 imágenes específicas para las disciplinas: dentro de cada vista todos los modales tienen una imagen distinta. Los archivos optimizados y los prompts están en `assets/images/services/disciplines/SOURCE.md`.
+
+El portafolio principal presenta siete divisiones en un único carrusel horizontal, en el orden del ejemplo: Sistemas Especiales, Desarrollo de Software, Data Centers, Networking y Ciberseguridad, Equipo Activo, Licenciamiento y Proyectos de Tecnología. Todas llevan a vistas propias con tarjetas de disciplinas y modales. El carrusel conserva tres tarjetas en escritorio, dos en tablet y una en móvil, con avance cada 4.2 segundos, flechas y pausa. Los servicios adicionales mantienen su carrusel. Se conservan las imágenes originales existentes y su optimización; las rutas y prompts están en assets/images/services/SOURCE.md.
+
+Las siete vistas de servicio se generan con `node scripts/build-service-pages.cjs`; su contenido está en `js/service-data.js`. Se validaron los ocho HTML, las 28 ubicaciones de disciplinas, las agrupaciones, los enlaces entre servicios, los archivos locales, las imágenes, los nombres accesibles y las traducciones ES/EN. `.review/carousel-behavior-check.cjs` comprueba controles independientes, pausa, reanudación, foco, cursor, retorno al inicio y movimiento reducido sin navegador.
 
 La portada presenta el conjunto de servicios con el título centrado “Tecnología que conecta y protege tu operación”, una sola frase y el botón “Conocer soluciones”. La introducción breve a Data Centers está en su tarjeta; la evaluación de instalaciones, la acreditación ATD y los proyectos llave en mano se explican en “Ver detalles”. Se mantiene la animación de escritura, la tipografía, las imágenes y la forma de los botones, respetando la preferencia de movimiento reducido. Contenido disponible en español e inglés. La copia anterior a la primera simplificación está en `.review/landing-before/`.
 
